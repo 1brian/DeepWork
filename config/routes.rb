@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  resources :posts
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #get 'posts/_form'
   get 'pages/panel'
   get 'pages/index'
   root to: 'pages#index'
